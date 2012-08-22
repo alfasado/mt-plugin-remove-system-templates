@@ -1,0 +1,20 @@
+name: RemoveSystemTemplates
+id:   RemoveSystemTemplates
+key:  removesystemtemplates
+version: 0.1
+author_link: http://alfasado.net/
+author_name: Alfasado Inc.
+l10n_class: RemoveSystemTemplates::L10N
+description: <__trans phrase="Plugin action 'Remove System Templates.'">
+callbacks:
+    MT::App::CMS::template_output.list_template: $settmplbuildtype::RemoveSystemTemplates::Plugin::_list_template
+    MT::App::CMS::template_output.edit_template: $settmplbuildtype::RemoveSystemTemplates::Plugin::_edit_template
+    MT::App::CMS::template_output.list_widget: $settmplbuildtype::RemoveSystemTemplates::Plugin::_list_widget
+applications:
+    cms:
+        list_actions:
+            template:
+                removesystemtemplates:
+                    label: Remove
+                    code: $removesystemtemplates::RemoveSystemTemplates::Plugin::_remove_system_templates
+                    permissions: can_edit_templates
